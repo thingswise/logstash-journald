@@ -4,6 +4,7 @@ FROM logstash:1.5.2
 WORKDIR /plugins
 COPY ./logstash-input-journald.gem ./
 RUN /opt/logstash/bin/plugin install ./logstash-input-journald.gem
+RUN /opt/logstash/bin/plugin install logstash-output-elasticsearch
 
 # Create a volume for storing state, set it as a default for the journald plugin
 # to store the cursor.
